@@ -1,0 +1,69 @@
+body{
+  height: 300vh; 
+}
+
+main{
+  position : fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ne pas toucher aux éléments ci-dessus. On travail c'est ce qui permet d'avoir une page que l'on peut 
+"scroller" mais qui visuellement ne bouge pas. */
+
+
+main{
+background-image: url("../img/fond.png");
+background-size: cover;
+background-position: center;
+background-repeat: no repeat;
+height:100vh;
+margin: 0;
+}
+
+#forme1{
+  position: fixed;
+  top: 350px ;
+  left: 600px;
+  width: 500px;
+  height: 500px;
+  animation-name: rotate;
+  animation-name: opacity;
+}
+
+#forme2{
+  position: fixed;
+  top: 15px ;
+  left: 250px;
+  width:100px;
+  width: 450px;
+  height: 450px;
+  animation-name: rotate;
+}
+
+#forme3{
+  position: fixed;
+  top: 75px ;
+  left: 1000px;
+  width:100px;
+  width: 400px;
+  height: 400px;
+  animation-name: rotate;
+}
+
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+.rotate {
+  animation: rotate 1s linear infinite;
+}
+
+

@@ -1,0 +1,70 @@
+
+#forme1, #forme2, #forme3 {
+  position: fixed;
+}
+
+/* Écran inférieur à 800px */
+@media (max-width: 800px) {
+  #forme1 {
+    top: 42vh; 
+    left: 37vw;
+    width: 30vw;
+    height: 30vw;
+  }
+  #forme2 {
+    top: 35vh;
+    left: 16vw;
+    width: 25vw;
+    height: 25vw;
+  }
+  #forme3 {
+    top: 38vh;
+    left: 65vw;
+    width: 22vw;
+    height: 22vw;
+  }
+}
+
+/* Entre 800px et 1000px */
+@media (max-width: 1000px) and (min-width: 800px) {
+  #forme1 {
+    top: 45vh;
+    left: 35vw;
+    width: 35vw;
+    height: 35vw;
+  }
+  #forme2 {
+    top: 30vh;
+    left: 10vw;
+    width: 30vw;
+    height: 30vw;
+  }
+  #forme3 {
+    top: 35vh;
+    left: 65vw;
+    width: 25vw;
+    height: 25vw;
+  }
+}
+
+/* Écran supérieur à 1800px */
+@media (min-width: 1800px) {
+  #forme1 {
+    top: 20vh;
+    left: 30vw;
+    width: 20vw;
+    height: 20vw;
+  }
+  #forme2 {
+    top: 10vh;
+    left: 20vw;
+    width: 15vw;
+    height: 15vw;
+  }
+  #forme3 {
+    top: 15vh;
+    left: 55vw;
+    width: 10vw;
+    height: 10vw;
+  }
+}
