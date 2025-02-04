@@ -11,16 +11,15 @@ $( document ).ready(function() {
     
 ////vous pouvez rédiger vos modification ici !
 
-  
 $("#forme1").on("mouseenter", function () {
-      $(this).addClass("rotate");
+  $(this).addClass("rotate");
 });
 
 $("#forme1").on("mouseleave", function () {
-      $(this).removeClass("rotate");
+  $(this).removeClass("rotate");
 });
 
-  $("#forme2").on("mouseenter", function () {
+$("#forme2").on("mouseenter", function () {
     $(this).addClass("rotate");
 });
 
@@ -37,8 +36,108 @@ $("#forme3").on("mouseleave", function () {
 });
 
 
+$("#forme1").on("mouseenter", function () {
+  $(this).addClass("rotate");
+});
 
- $("#forme1").on("dblclick", function() {
+$("#forme1").on("mouseleave", function () {
+  $(this).removeClass("rotate");
+});
+
+
+
+$( "#forme2" ).on( "mousedown", function() {
+  event.preventDefault();
+
+    var initialX = event.pageX;
+    var initialY = event.pageY;
+   
+    var initialPosition = $(this).position();
+    
+$(document).on("mousemove", function(event) {
+        var deltaX = event.pageX - initialX;
+        var deltaY = event.pageY - initialY;
+
+        
+$("#forme2").css({
+            "position": "absolute", 
+            "left": initialPosition.left + deltaX + "px",  
+            "top": initialPosition.top + deltaY + "px"    
+        });
+});
+
+   
+$(document).on("mouseup", function() {
+        $(document).off("mousemove");  
+        $(document).off("mouseup");   
+    });
+
+});
+
+$( "#forme3" ).on( "mousedown", function() {
+    event.preventDefault();
+  
+      var initialX = event.pageX;
+      var initialY = event.pageY;
+  
+  
+     
+      var initialPosition = $(this).position();
+  
+      
+$(document).on("mousemove", function(event) {
+          var deltaX = event.pageX - initialX;
+          var deltaY = event.pageY - initialY;
+  
+          
+          $("#forme3").css({
+              "position": "absolute", 
+              "left": initialPosition.left + deltaX + "px",  
+              "top": initialPosition.top + deltaY + "px"    
+          });
+      });
+  
+     
+$(document).on("mouseup", function() {
+          $(document).off("mousemove");  
+          $(document).off("mouseup");   
+      });
+       
+    });
+
+$(document).ready(function() {
+  // Fonction pour calculer l'opacité en fonction du scroll
+  function setOpacity() {
+      var scrollTop = $(window).scrollTop(); // Récupérer la position du scroll
+      var opacityValue = 1 - scrollTop / 500; // Calculer l'opacité
+      if (opacityValue < 0) opacityValue = 0; // Empêcher l'opacité de devenir négative
+
+      // Appliquer l'opacité à #forme1, #forme2, #forme3
+      $('#forme1, #forme2, #forme3').css({
+          'opacity': opacityValue
+      });
+
+      console.log("Scroll détecté :", scrollTop); // Afficher le scroll dans la console
+  }
+
+  // Appliquer l'opacité initiale à partir du scroll au moment du chargement
+  setOpacity();
+
+  // Gérer l'événement de scroll pour changer l'opacité
+  $(window).on('scroll', function() {
+      setOpacity(); // Recalculer et appliquer l'opacité au scroll
+  });
+
+  // Gérer le mouvement de la souris (si nécessaire pour autre logique)
+  $(window).on('mousemove', function(event) {
+      var positionY = event.pageY - $(window).scrollTop(); // Correction de la position de la souris par rapport au scroll
+      console.log("Position Y de la souris :", positionY); // Afficher la position Y de la souris
+  });
+});
+
+
+
+$("#forme1").on("dblclick", function() {
   if ($(this).css("filter") === "none" || $(this).css("filter") === "") {
    
     $(this).css({
@@ -82,126 +181,38 @@ $("#forme3").on("dblclick", function() {
 
 
 
- $( "#forme1" ).on( "mousedown", function() {
+$( "#forme1" ).on( "mousedown", function() {
   event.preventDefault();
 
-    var initialX = event.pageX;
-    var initialY = event.pageY;
+  var initialX = event.pageX;
+  var initialY = event.pageY;
    
-    var initialPosition = $(this).position();
+ var initialPosition = $(this).position();
 
-    $(document).on("mousemove", function(event) {
-        var deltaX = event.pageX - initialX;
-        var deltaY = event.pageY - initialY;
+ $(document).on("mousemove", function(event) {
+  var deltaX = event.pageX - initialX;
+  var deltaY = event.pageY - initialY;
 
-        $("#forme1").css({
-            "position": "absolute", 
-            "left": initialPosition.left + deltaX + "px",  
-            "top": initialPosition.top + deltaY + "px"    
-        });
-    });
 
-   
-    $(document).on("mouseup", function() {
-        $(document).off("mousemove");  
-        $(document).off("mouseup");   
-    });
-
-    $( "#forme2" ).on( "mousedown", function() {
-      event.preventDefault();
-    
-        var initialX = event.pageX;
-        var initialY = event.pageY;
-       
-        var initialPosition = $(this).position();
-        
-        $(document).on("mousemove", function(event) {
-            var deltaX = event.pageX - initialX;
-            var deltaY = event.pageY - initialY;
-    
-            
-            $("#forme2").css({
-                "position": "absolute", 
-                "left": initialPosition.left + deltaX + "px",  
-                "top": initialPosition.top + deltaY + "px"    
-            });
-        });
-    
-       
-        $(document).on("mouseup", function() {
-            $(document).off("mousemove");  
-            $(document).off("mouseup");   
-        });
-    
-      });
-
-      $( "#forme3" ).on( "mousedown", function() {
-        event.preventDefault();
-      
-          var initialX = event.pageX;
-          var initialY = event.pageY;
-      
-      
-         
-          var initialPosition = $(this).position();
-      
-          
-          $(document).on("mousemove", function(event) {
-              var deltaX = event.pageX - initialX;
-              var deltaY = event.pageY - initialY;
-      
-              
-              $("#forme3").css({
-                  "position": "absolute", 
-                  "left": initialPosition.left + deltaX + "px",  
-                  "top": initialPosition.top + deltaY + "px"    
-              });
-          });
-      
-         
-          $(document).on("mouseup", function() {
-              $(document).off("mousemove");  
-              $(document).off("mouseup");   
-          });
-      
-        });
-
-        $(window).on('scroll', function() {
-          var scrollTop = $(window).scrollTop(); // Récupérer la quantité de scroll
-      
-          // Calculer une valeur d'opacité entre 1 et 0 en fonction du scroll
-          var opacityValue = 1 - scrollTop / 500; // Ajuste 500 selon la distance souhaitée
-          if (opacityValue < 0) opacityValue = 0; // Empêcher une opacité négative
-      
-          $('#forme1').css({
-              'opacity': opacityValue // Utiliser opacity pour ajuster la transparence
-          });
-      });
-      
-        
-
-/////Ci-dessous la fonction permettant de déclancher des modifications en fonction du scroll
-$(window).on( 'scroll', function(){
-
-    scrollTop = $(window).scrollTop(); //création d'une varible contenant la "quantitée de scroll"
-    if (opacityValue < 0) {
-      opacityValue = 0;
-  }
-
-  // Applique la valeur d'opacité calculée à #forme1
-  $('#forme1').css({
-      'opacity': opacityValue
-  });
+  $("#forme1").css({
+ "position": "absolute", 
+ "left": initialPosition.left + deltaX + "px",  
+ "top": initialPosition.top + deltaY + "px"    
+ });
  });
 
 
 
-  $(window).on('mousemove', function(){
-    positionY = event.pageY - scrollTop; // corection de la valeur de event.pageY pour qu'elle ne soit pas affectée par le scroll
-  })
+$(document).on("mouseup", function() {
+        $(document).off("mousemove");  
+        $(document).off("mouseup");   
+});
 
 
 
+      
+
+        
  //////// ///ne rien écrire après ceci
 });
 

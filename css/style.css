@@ -28,8 +28,8 @@ margin: 0;
   width: 500px;
   height: 500px;
   animation-name: rotate;
-  animation-name: opacity;
 }
+
 
 #forme2{
   position: fixed;
